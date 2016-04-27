@@ -1,4 +1,4 @@
-/* LESSON 1 */ /*
+/* LESSON 1 */ /* ========================================================================================================================
 var createGreeting = function (message, name) {				//casual function
 	return message + name;
 };
@@ -39,7 +39,7 @@ deliveryBoy1.receive();
 //------------------------------------------------------
 */
 
-/* LESSON 2 */
+/* LESSON 2 */ /* ========================================================================================================================
 var message = "hi";
 {
 	var message = "bye";
@@ -97,4 +97,43 @@ function letFunc() {
 		current = tmp + current;
 	}
 }
+//------------------------------------------------------
+*/
+
+/* LESSON 3 */ /* ========================================================================================================================
+*/
+function greet(greeting, name) {
+	console.log(greeting + ", " + name);
+}
+greet();				//we get 2 times 'undefined'
+
+function greet1(greeting, name = "Peter") {	//sets the default value of the 'name' argument
+	console.log(greeting + ", " + name);
+}
+greet1();				//we get 'undefined, Peter'
+greet1("Hi");			//we get 'Hi, Peter'
+greet1("Hi", "John");	//we get 'Hi, John' (defaul argument is overwritten)
+//------------------------------------------------------
+function receive(complete) {
+	complete();
+}
+//receive();				//we get error (because of the empty function)
+receive(function() {		//now is ok
+	console.log('Working!');
+});
+
+function receive1(complete = function() {	//we pass default value of the argument which is a function
+	console.log('Working!');
+}) {
+	complete();
+}
+receive1();									//so now is ok too
+
+function receive2(complete = () => console.log('Working with ES6 syntax!')) {	//we can change to ES6 syntax
+	complete();
+}
+receive2();
+
+let receive3 = (complete = () => console.log('Everything is working')) => complete();
+receive3();
 //------------------------------------------------------
