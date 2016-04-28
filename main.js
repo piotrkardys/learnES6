@@ -268,7 +268,6 @@ console.log(message);
 */
 
 /* LESSON 9 */ /* ========================================================================================================================
-*/
 var obj = {					//everything is alright
 	color: "blue"
 };
@@ -314,7 +313,7 @@ var people = [							//we have got an array of the people
 	phone: "456-123-789"},
 	{firstName: "Neil",
 	lastName: "Harr",
-	phone: "456-789-123"},
+	phone: "456-789-123"}
 ];
 
 people.forEach(({firstName:name}) => console.log(name));	//forEach element (object) in that array show the 'firstName' value
@@ -327,4 +326,25 @@ function showPhone({phone}) {								//we pass an object to this function (but w
 var [, jack] = people;										//we get second element of the array (variable jack but it could be also variable named 'second')
 
 showPhone(jack);
+//------------------------------------------------------
+*/
+
+/* LESSON 10 */ /* ========================================================================================================================
+*/
+//import {sumTwo, sumThree} from './math/addition';				//there is also a few way of importing, there is the first one
+//console.log("2 + 3 = ", sumTwo(2, 3));
+//console.log("2 + 3 + 4 = ", sumThree(2, 3, 4));
+
+//import {sumTwo as addTwo, sumThree} from './math/addition';	//there is the second one (with the alias)
+//console.log("2 + 3 = ", addTwo(2, 3));						//we use the alias if it is specified
+//console.log("2 + 3 + 4 = ", sumThree(2, 3, 4));
+
+import * as addition from './math/addition';					//and there is the third one (import everything with the addition alias from the ./math/addition)
+import {users} from './data/users';
+import * as _ from 'lodash';
+
+console.log("2 + 3 = ", addition.sumTwo(2, 3));
+console.log("2 + 3 + 4 = ", addition.sumThree(2, 3, 4));
+console.log(users);												//shows all users (all the array of users)
+console.log(_.where(users, {age: 36}));							//shows object of the user with age of 36 (barney)
 //------------------------------------------------------
