@@ -350,7 +350,6 @@ console.log(_.where(users, {age: 36}));							//shows object of the user with ag
 */
 
 /* LESSON 11 */ /* ========================================================================================================================
-*/
 const products = document.querySelectorAll('.product');					//grabs every element of the 'product' class
 console.log(products);													//type of the variable products is NodeList (we cannot use array's methods on it)
 
@@ -360,3 +359,38 @@ products2.filter(product => parseFloat(product.innerHTML) < 10).forEach(product 
 																		//.filter - filtring the results (returns array with elements which value is less than 10)
 																		//.forEach - styling that elements which were chosen 
 //------------------------------------------------------
+*/
+
+/* LESSON 12 */ /* ========================================================================================================================
+*/
+var d = new Promise((resolve, reject) => {
+	setTimeout(() => {										//timeout waits a 2seconds before the body of the function is executed
+		if (true) resolve('hello world');
+		else reject('false');
+	}, 2000);
+});
+
+//d.then((data) => console.log('success: ' + data));														//executes when the promise is resolved
+//d.catch((error) => console.log('error: ' + error));														//executes when the promise is rejected
+
+//d.then((data) => console.log('success: ' + data), (error) => console.log('new error: ' + error));			//other methods to write that functions
+
+//d.then((data) => console.log('success: ' + data)).catch((error) => console.log('new error: ' + error));
+
+//d.then((data) => console.log('success: ' + data))															//the second 'then' has undefined data (because first 'then' used it)
+// .then((data) => console.log('success2: ' + data))
+// .catch((error) => console.log('error: ' + error));
+
+//d.then((data) => {																						//now both of them will executed
+//	console.log('success: ' + data);
+//	return 'still success';
+//}).then((data) => console.log('success2: ' + data))
+// .catch((error) => console.log('error: ' + error));
+
+d.then((data) => {	
+	console.log('success: ' + data);
+	throw new Error('thrown!');																				//throw new Error (calls catch method) even though the condition is true
+	return 'still success';																					//only the first 'then' is executed and then the 'catch' method
+}).then((data) => console.log('success2: ' + data))
+ .catch((error) => console.log('error: ' + error));
+ //------------------------------------------------------
