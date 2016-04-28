@@ -237,7 +237,6 @@ addThreeThings(...third);		//returns value 24 (7 + 8 + 9 - three elements from t
 */
 
 /* LESSON 8 */ /* ========================================================================================================================
-*/
 var salutation = "Hello";
 var greeting = salutation + " World";		//casual string
 var greeting2 = `${salutation} Peter`;		//string with backward inverted commas  (is white space sensitive)
@@ -265,4 +264,67 @@ function func(strings, ...values) {			//returns changed values[2] which depends 
 var message = func`It's ${new Date().getHours()}:${new Date().getMinutes()} - I'm ${""}`;
 
 console.log(message);
+//------------------------------------------------------
+*/
+
+/* LESSON 9 */ /* ========================================================================================================================
+*/
+var obj = {					//everything is alright
+	color: "blue"
+};
+console.log(obj.color);
+
+var {color, name} = {		//we only want to extract the color and name fields (we are not interested in rest of them)
+	color: "blue",
+	name: "Peter",
+	state: "Ohio",
+	position: "forward"
+};
+console.log(color);			//ok
+console.log(name);			//ok
+console.log(state);			//shows undefined (because we didn't make the state field available)
+//------------------------------------------------------
+function generateObj() {	//function which returns the object with some fields
+	return {
+		color: "blue",
+		name: "Peter",
+		state: "Ohio",
+		position: "forward"
+	}
+}
+
+var {name, state} = generateObj();		//we are interested only in 2 of them (name, state)
+var {position: pos} = generateObj();	//we can rename of the variable
+console.log(name);						//ok
+console.log(state);						//ok
+console.log(pos);						//ok
+//console.log(position);				//shows nothing (same reason as above)
+//------------------------------------------------------
+var [first, , , fo, ] = ["red", "green", "blue", "yellow", "black"];	//we are insteresten only in first and fourth element of the array
+console.log(first);						//ok
+//console.log(second);					//shows nothing
+console.log(fo);						//ok
+//------------------------------------------------------
+var people = [							//we have got an array of the people
+	{firstName: "Peter",
+	lastName: "Kardyś",
+	phone: "123-456-789"},
+	{firstName: "Jack",
+	lastName: "Nickis",
+	phone: "456-123-789"},
+	{firstName: "Neil",
+	lastName: "Harr",
+	phone: "456-789-123"},
+];
+
+people.forEach(({firstName:name}) => console.log(name));	//forEach element (object) in that array show the 'firstName' value
+															//it could be also: people.forEach((obj) => console.log(obj.firstName));
+															//but we are insterested only in 'firstName' field
+
+function showPhone({phone}) {								//we pass an object to this function (but we are insterested only in the 'phone' field of that object)
+	console.log(phone);
+};
+var [, jack] = people;										//we get second element of the array (variable jack but it could be also variable named 'second')
+
+showPhone(jack);
 //------------------------------------------------------
