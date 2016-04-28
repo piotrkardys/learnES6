@@ -173,7 +173,6 @@ console.log(superHero);
 */
 
 /* LESSON 6 */ /* ========================================================================================================================
-*/
 var color = "red";
 var speed = 10;
 var go = function() {
@@ -207,4 +206,32 @@ car.go();
 car2.go();
 car3.go();
 car3.drive();
+//------------------------------------------------------
+*/
+
+/* LESSON 7 */ /* ========================================================================================================================
+*/
+console.log([1, 2, 3]);			//returns an array [1, 2, 3]
+console.log(...[1, 2, 3]);		//returns 1, 2, 3 (spread array into single elements)
+//------------------------------------------------------
+let first = [1, 2, 3];
+let second = [4, 5, 6];
+let third = [7, 8, 9];
+let fourth = [10, 11, 12];
+first.push(second);
+first.push(second);
+third.push(...fourth);
+third.push(...fourth);
+
+console.log(first);				//returns an array of elements: 1, 2, 3, Array[3], Array[3]
+console.log(third);				//returns an array of elements: 7, 8, 9, 10, 11, 12, 10, 11, 12
+
+function addThreeThings(a, b, c) {
+	let result = a + b + c;
+	console.log(result);
+};
+
+addThreeThings(...first);		//returns value 6 (sum of the three top elements of the array [1, 2, 3, Array[3], Array[3]])
+addThreeThings(third);			//returns undefined (because we passed only one element - an array)
+addThreeThings(...third);		//returns value 24 (7 + 8 + 9 - three elements from the top)
 //------------------------------------------------------
