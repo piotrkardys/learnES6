@@ -10,3 +10,4 @@
 "28.04.2016 – 14:40 – Lesson8: advantages of using backwarded inverted commas (with the strings), update file main.js" 
 "28.04.2016 – 15:25 – Lesson9: selection of the object or array fields, update file main.js" 
 "28.04.2016 – 16:10 – Lesson10: adding new files, methods of exporting/importing, create files: addition.js, users.js, update file main.js" 
+"28.04.2016 – 16:50 – Lesson11: grabing all elements (of some class) from the HTML document &styling the chosen ones, update file main.js, index.html" 

@@ -330,7 +330,6 @@ showPhone(jack);
 */
 
 /* LESSON 10 */ /* ========================================================================================================================
-*/
 //import {sumTwo, sumThree} from './math/addition';				//there is also a few way of importing, there is the first one
 //console.log("2 + 3 = ", sumTwo(2, 3));
 //console.log("2 + 3 + 4 = ", sumThree(2, 3, 4));
@@ -347,4 +346,17 @@ console.log("2 + 3 = ", addition.sumTwo(2, 3));
 console.log("2 + 3 + 4 = ", addition.sumThree(2, 3, 4));
 console.log(users);												//shows all users (all the array of users)
 console.log(_.where(users, {age: 36}));							//shows object of the user with age of 36 (barney)
+//------------------------------------------------------
+*/
+
+/* LESSON 11 */ /* ========================================================================================================================
+*/
+const products = document.querySelectorAll('.product');					//grabs every element of the 'product' class
+console.log(products);													//type of the variable products is NodeList (we cannot use array's methods on it)
+
+const products2 = Array.from(document.querySelectorAll('.product'));	//so we grab and convert into Array
+console.log(products2);
+products2.filter(product => parseFloat(product.innerHTML) < 10).forEach(product => product.style.color = 'red');
+																		//.filter - filtring the results (returns array with elements which value is less than 10)
+																		//.forEach - styling that elements which were chosen 
 //------------------------------------------------------
