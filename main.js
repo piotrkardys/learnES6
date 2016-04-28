@@ -210,7 +210,6 @@ car3.drive();
 */
 
 /* LESSON 7 */ /* ========================================================================================================================
-*/
 console.log([1, 2, 3]);			//returns an array [1, 2, 3]
 console.log(...[1, 2, 3]);		//returns 1, 2, 3 (spread array into single elements)
 //------------------------------------------------------
@@ -234,4 +233,36 @@ function addThreeThings(a, b, c) {
 addThreeThings(...first);		//returns value 6 (sum of the three top elements of the array [1, 2, 3, Array[3], Array[3]])
 addThreeThings(third);			//returns undefined (because we passed only one element - an array)
 addThreeThings(...third);		//returns value 24 (7 + 8 + 9 - three elements from the top)
+//------------------------------------------------------
+*/
+
+/* LESSON 8 */ /* ========================================================================================================================
+*/
+var salutation = "Hello";
+var greeting = salutation + " World";		//casual string
+var greeting2 = `${salutation} Peter`;		//string with backward inverted commas  (is white space sensitive)
+var greeting3 = `
+${salutation}
+	Kardys`;
+
+console.log(greeting);
+console.log(greeting2);
+console.log(greeting3);
+//------------------------------------------------------
+var x = 1;
+var y = 2;
+var sum = `${x} + ${y} = ${x + y}`;
+
+console.log(sum);
+//------------------------------------------------------
+function func(strings, ...values) {			//returns changed values[2] which depends of values[0]
+	if (values[0] > 22 || values[0] < 6) values[2] = "sleepy";
+	else values[2] = "awake";
+
+	return `${strings[0]}${values[0]}${strings[1]}${values[1]}${strings[2]}${values[2]}`;	//we need to return in right order! (otherwise the string will be shuffled)
+}
+
+var message = func`It's ${new Date().getHours()}:${new Date().getMinutes()} - I'm ${""}`;
+
+console.log(message);
 //------------------------------------------------------

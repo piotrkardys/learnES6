@@ -7,3 +7,4 @@
 "28.04.2016 – 12:55 – Lesson5: creating new objects with the object declared earlier, update file main.js" 
 "28.04.2016 – 13:15 – Lesson6: declaration of the function inside the object, update file main.js" 
 "28.04.2016 – 14:00 – Lesson7: difference between array and ...array, update file main.js" 
+"28.04.2016 – 14:40 – Lesson8: advantages of using backwarded inverted commas (with the strings), update file main.js" 
