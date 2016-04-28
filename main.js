@@ -101,7 +101,6 @@ function letFunc() {
 */
 
 /* LESSON 3 */ /* ========================================================================================================================
-*/
 function greet(greeting, name) {
 	console.log(greeting + ", " + name);
 }
@@ -136,4 +135,27 @@ receive2();
 
 let receive3 = (complete = () => console.log('Everything is working')) => complete();
 receive3();
+//------------------------------------------------------
+*/
+
+/* LESSON 4 */ /* ========================================================================================================================
+*/
+var VALUE = 'hello there';
+VALUE = 'no more';
+console.log('value: ' + VALUE);				//the variable is overwritten
+
+const VALUE2 = 'I said hello!';				//error (VALUE2 is const for read-only)
+//VALUE2 = 'nothing I can do';				//so we cannot change its value
+console.log('value2: ' + VALUE2);
+
+const VALUE3 = {};
+VALUE3.val = 'some field';					//everything is alright (we don't change the whole object)
+//VALUE3 = 'some field';					//error (VALUE3 is read-only)
+console.log('value3: ' + VALUE3.val);
+
+if (true) {
+	const someVar = 'something';
+	console.log('some var: ' + someVar);	//returns 'some var: something'
+}
+console.log('some var: ' + someVar);		//returns nothing (const type is also block-sensitive)
 //------------------------------------------------------
