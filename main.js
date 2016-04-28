@@ -161,7 +161,6 @@ console.log('some var: ' + someVar);		//returns nothing (const type is also bloc
 */
 
 /* LESSON 5 */ /* ========================================================================================================================
-*/
 let name = "Piotr";
 let lastName = "Kardyś";
 let me = {name, lastName};
@@ -170,4 +169,42 @@ console.log(me);
 let power = "Invisibility";
 let superHero = {me, power};				//construction with the object which we already have (field 'me' of the superHero object is an object too)
 console.log(superHero);
+//------------------------------------------------------
+*/
+
+/* LESSON 6 */ /* ========================================================================================================================
+*/
+var color = "red";
+var speed = 10;
+var go = function() {
+	console.log('vroom!');
+}
+
+var car = {color, speed, go};			//we don't need to declare the fields like color: color (if we have the same variable's name)
+var car2 = {
+	color, 
+	speed, 
+	go() {								//that's how we declare functions inside the object in ES6
+		console.log('VROOOM!');
+	}
+};
+
+var d = "drive";
+var car3 = {
+	color,
+	speed,
+	["go"]: function() {				//we can also use that method
+		console.log('...');
+	},
+	[d]: function() {					//or even that method
+		console.log('ooo');
+	}
+};
+
+console.log(car.color);
+console.log(car.speed);
+car.go();
+car2.go();
+car3.go();
+car3.drive();
 //------------------------------------------------------
