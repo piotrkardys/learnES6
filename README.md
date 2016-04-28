@@ -4,3 +4,4 @@
 "27.04.2016 – 17:30 – Lesson2: diference between 'var' and 'let', update file main.js" 
 "27.04.2016 – 17:55 – Lesson3: default values of the function arguments, update file main.js" 
 "28.04.2016 – 12:40 – Lesson4: diference between 'var' and 'const', update file main.js" 
+"28.04.2016 – 12:55 – Lesson5: creating new objects with the object declared earlier, update file main.js" 

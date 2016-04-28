@@ -139,7 +139,6 @@ receive3();
 */
 
 /* LESSON 4 */ /* ========================================================================================================================
-*/
 var VALUE = 'hello there';
 VALUE = 'no more';
 console.log('value: ' + VALUE);				//the variable is overwritten
@@ -158,4 +157,17 @@ if (true) {
 	console.log('some var: ' + someVar);	//returns 'some var: something'
 }
 console.log('some var: ' + someVar);		//returns nothing (const type is also block-sensitive)
+//------------------------------------------------------
+*/
+
+/* LESSON 5 */ /* ========================================================================================================================
+*/
+let name = "Piotr";
+let lastName = "Kardyś";
+let me = {name, lastName};
+console.log(me);
+
+let power = "Invisibility";
+let superHero = {me, power};				//construction with the object which we already have (field 'me' of the superHero object is an object too)
+console.log(superHero);
 //------------------------------------------------------
