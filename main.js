@@ -362,7 +362,6 @@ products2.filter(product => parseFloat(product.innerHTML) < 10).forEach(product 
 */
 
 /* LESSON 12 */ /* ========================================================================================================================
-*/
 var d = new Promise((resolve, reject) => {
 	setTimeout(() => {										//timeout waits a 2seconds before the body of the function is executed
 		if (true) resolve('hello world');
@@ -394,3 +393,28 @@ d.then((data) => {
 }).then((data) => console.log('success2: ' + data))
  .catch((error) => console.log('error: ' + error));
  //------------------------------------------------------
+*/ 
+
+ /* LESSON 13 */ /* ========================================================================================================================
+ */
+function* greet() {							//it is like an object (with the 'next' field)
+ 	console.log(`You called 'next()'`);
+ 	yield "hello";
+};
+greet();									//shows nothing
+console.log(greet());
+let next = greet().next();					//shows `You called 'next()'`
+console.log(next);							//it is an object with properties: value &done (value is that what is in the yield variable; the done field shows false)
+let done = greet().next();					//shows nothing (because there is no function body after the first yield field)
+console.log(done);							//it is an object with value: undefined &done: true
+//------------------------------------------------------
+function* greet2() {
+	console.log("How");
+	yield "are";
+	console.log("you");
+	yield "Peter";
+	console.log("?");
+	yield " I'm";
+	console.log("fine");
+};
+console.log(greet().next());
