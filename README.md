@@ -11,5 +11,6 @@
 "28.04.2016 – 15:25 – Lesson9: selection of the object or array fields, update file main.js" 
 "28.04.2016 – 16:10 – Lesson10: adding new files, methods of exporting/importing, create files: addition.js, users.js, update file main.js" 
 "28.04.2016 – 16:50 – Lesson11: grabing all elements (of some class) from the HTML document &styling the chosen ones, update file main.js, index.html" 
-"28.04.2016 – 17:50 – Lesson12: familiarize with the Promises, update file main.js" 
-"29.04.2016 – 15:15 – Lesson13: familiarize with the Generators, update file main.js" 
+"28.04.2016 – 17:50 – Lesson12: familiarizing with the Promises, update file main.js" 
+"29.04.2016 – 15:15 – Lesson13: familiarizing with the Generators, update file main.js" 
+"29.04.2016 – 16:05 – Lesson14: familiarizing with the Map and the WeakMap, update file main.js" 

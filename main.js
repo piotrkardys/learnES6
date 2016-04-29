@@ -395,8 +395,7 @@ d.then((data) => {
  //------------------------------------------------------
 */ 
 
- /* LESSON 13 */ /* ========================================================================================================================
- */
+/* LESSON 13 */ /* ========================================================================================================================
 function* greet() {							//it is like an object (with the 'next' field)
  	console.log(`You called 'next()'`);
  	yield "hello";
@@ -417,4 +416,79 @@ function* greet2() {
 	yield " I'm";
 	console.log("fine");
 };
-console.log(greet().next());
+console.log(greet2().next());				//shows "How" and the values of the yield fields value &done ("are", false)
+console.log(greet2().next());				//shows "you" and the values of the yield ("Peter", false)
+console.log(greet2().next());				//shows "?" and the values of the yield ("I'm", false)
+console.log(greet2().next());				//shows "fine" and the values of the yield (undefined, true)
+
+for (let word of greet2()) {				//we can also show all of the messages by using for loop 
+	console.log(word);
+};
+//------------------------------------------------------
+function* greet3() {
+	let friendly = yield "How";
+	friendly = yield friendly + "are"
+	yield friendly + "you?";
+};													//shows:
+console.log(greet3().next().value);					//How
+console.log(greet3().next("the heck").value);		//the heck are
+console.log(greet3().next("silly").value);			//silly you?
+//------------------------------------------------------
+function* graph() {
+	let x = 0;
+	let y = 0;
+	while (true) {
+		yield {x:x, y:y}
+		x += 2;
+		y += 1;
+	}
+}
+													//shows:
+console.log(graph().next().value);					//{x: 0, y: 0}
+console.log(graph().next().value);					//{x: 2, y: 1}
+console.log(graph().next().value);					//{x: 4, y: 2}
+													//despite of the infinite loop generators are executing only to the first yield field
+//------------------------------------------------------
+*/
+
+ /* LESSON 14 */ /* ========================================================================================================================
+ */
+// M A P   M E T H O D S
+// API:  		set()   get()      size      clear()  has()
+// ITERATORS: 	keys()  entries()  values()    
+
+var myMap = new Map();
+myMap.set('color', 'blue');								//.set(key, value)
+myMap.set('hello', 'world');
+
+console.log(myMap.get('color'));						//returns blue
+console.log(myMap.get('sth'));							//returns undefined
+console.log(myMap.size);								//returns number of the elements in the map
+console.log(myMap.has('hello'));						//returns true if that field exists
+console.log(myMap.has('sth'));							//returns false otherwise
+myMap.clear();											//removes all elements
+console.log(myMap.size);
+myMap.set('color', 'black');
+myMap.set('hi', 'everyone');
+
+for (var key of myMap.keys()) console.log(key);								//keys() returns names of every field in the map 
+																			//shows color &hi
+for (var value of myMap.values()) console.log(value);						//values() returns values of every field in the map
+																			//shows black &everyone
+for (var [key, value] of myMap.entries()) console.log(key + " : " + value);	//entries() returns all the fields with values inside the map
+																			//shows color : black & hi : everyone
+//------------------------------------------------------
+var myObj = {};
+var myFunc = function() {};
+var myMap2 = new Map();
+//var myMap2 = new WeakMap();			//we can't use 'string' as a name of the field, and we don't have the access to the entries() method
+myMap2.set(myObj, 'yellow');
+myMap2.set(myFunc, 'something');
+myMap2.set('string', 2);
+
+for (var [key, value] of myMap2.entries()) console.log(key + " : " + value);//everything is fine
+																			//shows:
+																			// [objectObject] : yellow
+																			// function myFunc() {} : something
+																			// string : 2
+//------------------------------------------------------
