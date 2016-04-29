@@ -14,3 +14,4 @@
 "28.04.2016 – 17:50 – Lesson12: familiarizing with the Promises, update file main.js" 
 "29.04.2016 – 15:15 – Lesson13: familiarizing with the Generators, update file main.js" 
 "29.04.2016 – 16:05 – Lesson14: familiarizing with the Map and the WeakMap, update file main.js" 
+"29.04.2016 - 16:05 - end of the project" 
